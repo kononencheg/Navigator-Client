@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+    <html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>Livetex Navigator</title>
+        <link href="bootstrap.css" rel="stylesheet">
+        <link href="bootstrap-theme.css" rel="stylesheet">
+        <style>
+
+            body {
+                margin: 0;
+            }
+
+            iframe {
+                position: absolute;
+                height: 100%;
+                width: 100%;
+                border: none;
+            }
+
+            .dialog {
+                position: relative;
+                top: 100px;
+                right: 0;
+                height: 400px;
+                width: 340px;
+                margin: 0;
+            }
+
+        </style>
+    </head>
+    <body>
+        <iframe name="livetex" src="http://livetex.ru/"></iframe>
+
+        <div class="dialog container-fluid well">
+            <div class="row" style="height: 330px; overflow-y: scroll;">
+                <div id="message_list" class="col-md-12">
+                    <div class="alert alert-success" role="alert">
+                        Здравствуйте, чем я могу вам помочь?
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12">
+                    <form class="form-inline"
+                          onsubmit="event.preventDefault()">
+                        <div class="form-group">
+                            <input id="question_text" type="text"
+                                   placeholder="Ваш вопрос..."
+                                   class="form-control">
+                        </div>
+
+                        <button id="send_button" type="button"
+                                class="btn btn-default">Отправить</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <script type="text/javascript" src="target/scala-2.11/navigator-client-fastopt.js"></script>
+        <script type="text/javascript">
+          ru.livetex.navigator.client.ClientApp().main();
+        </script>
+    </body>
+</html>
