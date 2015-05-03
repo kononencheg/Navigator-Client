@@ -23,10 +23,9 @@ object ClientApp extends JSApp {
 
   def message(text: String, target: HTMLElement, response: Boolean = true): Unit = {
     val node = document.createElement("div").asInstanceOf[HTMLDivElement]
+    node.innerHTML = text
     node.className = "alert " +
       (if (response) "alert-info" else "alert-success")
-
-    node.innerHTML = text
 
     target.insertBefore(node, target.firstChild)
   }
